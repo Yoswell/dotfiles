@@ -10,7 +10,7 @@ KEEP_ITEMS=(
     "cherrytree" "micro" "powershell" "rofi" "Vector 35"
     "dconf" "Mousepad" "pulse" "Thunar" "Windsurf" 
     "gtk-3.0" "nautilus" "qt6ct" "user-dirs.dirs" "user-dirs.locale"
-    "xfce4" "kitty" "qterminal.org" "Code" "wireshark"
+    "xfce4" "kitty" "qterminal.org" "Code" "wireshark" "Caido"
 )
 
 clean_config_auto() {

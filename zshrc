@@ -1,4 +1,4 @@
-#== Powerlevel10k
+# Powerlevel10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -6,23 +6,23 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source ~/.oh-my-zsh/powerlevel10k/powerlevel10k.zsh-theme
 
-#== Disable updates
+# Disable updates
 DISABLE_AUTO_UPDATE="true"
 
-#== Completed cache
+# Completed cache
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 	
-#== Paths
+# Paths
 export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH
 export PATH="$HOME/bin/:$PATH"
 export ZSH=$HOME/.oh-my-zsh
 
-#== Themas oh-my-zsh
+# Themas oh-my-zsh
 # ZSH_THEME="evan"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
-#== Functions
+# Functions
 function hexd() { echo "$@" | xxd -p -r }
 function b64() { echo "$@" | base64 -d }
 function mkt() { mkdir {content,nmap,credentials,exploits} }
@@ -38,7 +38,7 @@ function reload() {
 	sudo tee /proc/sys/vm/drop_caches > /dev/null
 }
 
-#== Aliases
+# Aliases
 alias ll='ls -l'
 alias la='ls -la'
 alias cls="clear"
@@ -51,7 +51,7 @@ alias bat='batcat --theme="zenburn" -l ruby'
 alias stopVpn='sudo killall openvpn'
 alias rmall='sudo rm -r'
 
-#== Plugins
+# Plugins
 plugins=(
 	zsh-syntax-highlighting
 	zsh-autosuggestions
