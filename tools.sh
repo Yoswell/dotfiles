@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# Windsurf editor de codigo
+# Create virtual environment in ~/ctf_py_packages
+mkdir -p ~/ctf_py_packages
+python3 -m venv ~/ctf_py_packages/ctf_env
+source ~/ctf_py_packages/ctf_env/bin/activate
+
+# Windsurf code editor
 sudo apt-get install wget gpg -y
 wget -qO- "https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg" | gpg --dearmor > windsurf-stable.gpg
 sudo install -D -o root -g root -m 644 windsurf-stable.gpg /etc/apt/keyrings/windsurf-stable.gpg
@@ -18,7 +23,7 @@ micro -plugin install editorconfig
 micro -plugin install nordcolors
 micro -plugin install filemanager
 
-# Gdb plugins binary analizer
+# Gdb plugins binary analyzer
 sudo apt install gdb-peda -y
 curl -qsL 'https://install.pwndbg.re' | sh -s -- -t pwndbg-gdb
 bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
@@ -45,22 +50,22 @@ sudo apt install certipy-ad -y
 sudo apt install python3-impacket -y
 sudo apt install impacket-scripts -y
 sudo apt install ranger -y
+sudo apt install flatpak -y
 
 # PowerShell
 sudo apt install powershell -y
 
-# Utilidades de formateo 
-# Utilidades
-sudo apt install bat -y      # cat mejorado
-sudo apt install fd-find -y  # find mejorado
-sudo apt install fzf -y      # búsqueda fuzzy
-sudo apt install ripgrep -y  # grep mejorado
-sudo apt install jq -y       # procesar JSON
-sudo apt install yq -y       # procesar YAML
+# Formatting utilities
+sudo apt install bat -y      # improved cat
+sudo apt install fd-find -y  # improved find
+sudo apt install fzf -y      # fuzzy search
+sudo apt install ripgrep -y  # improved grep
+sudo apt install jq -y       # process JSON
+sudo apt install yq -y       # process YAML
 sudo apt install hexyl -y    # hex viewer
 sudo apt install ncdu -y     # disk usage
 
-# Más herramientas CTF
+# More CTF tools
 sudo apt install binwalk -y
 sudo apt install exiftool -y
 sudo apt install foremost -y
@@ -82,27 +87,34 @@ sudo apt install neofetch -y
 sudo apt install htop -y
 sudo apt install tree -y
 
-# Ctf tools pip
-pip install oletools --break-system-packages
-pip install stego-lsb --break-system-packages
-pip install pwntools --break-system-packages
-pip install pycryptodome --break-system-packages
-pip install decompyle3 --break-system-packages
-pip install decompyle6 --break-system-packages
-pip install ropper --break-system-packages
-pip install -U https://github.com/DissectMalware/pyOneNote/archive/master.zip --force --break-system-packages
-pip3 install pypykatz --break-system-packages
-pip3 install stegpy --break-system-packages
-pip3 install defaultcreds-cheat-sheet --break-system-packages
-pip3 install kerbrute --break-system-packages
-pip3 install stegoveritas --break-system-packages
-pip install angr --break-system-packages
-pip install capstone --break-system-packages
-pip install unicorn --break-system-packages
-pip install keystone-engine --break-system-packages
-pip install stegcracker --break-system-packages
-pip install xortool --break-system-packages
+# CTF tools pip (installed in virtual environment)
+pip install oletools
+pip install stego-lsb
+pip install pwntools
+pip install pycryptodome
+pip install decompyle3
+pip install decompyle6
+pip install ropper
+pip install -U https://github.com/DissectMalware/pyOneNote/archive/master.zip --force
+pip install pypykatz
+pip install stegpy
+pip install defaultcreds-cheat-sheet
+pip install kerbrute
+pip install stegoveritas
+pip install angr
+pip install capstone
+pip install unicorn
+pip install keystone-engine
+pip install stegcracker
+pip install xortool
 stegoveritas_install_deps
+
+# Exit virtual environment after pip installations
+deactivate
+
+# Flatpak utils
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install --user flathub org.keepassxc.KeePassXC
 
 # Sonic visualizer
 mkdir -p ~/tools/ctftools
@@ -145,11 +157,14 @@ cmake ..
 make
 sudo ln -sf ~/tools/ctftools/audioStego/build/hideme /usr/bin/hideme
 
-# LSB Steganografhy
+# LSB Steganography
 cd ~/tools/ctftools
 git clone https://github.com/RobinDavid/LSB-Steganography.git
 cd LSB-Steganography
-pip install -r requirements.txt --break-system-packages
+# Activate environment temporarily for this installation
+source ~/ctf_py_packages/ctf_env/bin/activate
+pip install -r requirements.txt
+deactivate
 
 # Masscan
 cd ~/tools/ctftools
@@ -169,11 +184,16 @@ make
 cd ~/tools/ctftools
 git clone https://github.com/fortra/impacket.git
 cd impacket
-python3 -m pipx install .
+# Activate environment temporarily for this installation
+source ~/ctf_py_packages/ctf_env/bin/activate
+pip install .
+deactivate
 cd ../
 sudo rm -rf impacket
 
 # Docker Images
 docker pull mcr.microsoft.com/dotnet/sdk:9.0 # Powershell
 
-echo "Todas las herramientas instaladas correctamente"
+echo "All tools installed successfully"
+echo "Virtual environment created at: ~/ctf_py_packages/ctf_env"
+echo "To activate the environment, run: source ~/ctf_py_packages/ctf_env/bin/activate"
