@@ -20,8 +20,8 @@ mkdir -p wallpapers && cd wallpapers
 cp ~/tools/config_files/wallpapers/* . 2>/dev/null
 
 # Login wallpaper configuration
-sudo cp s4vitar.jpg /usr/share/backgrounds/kali/kali-maze-16x9.jpg 2>/dev/null
-sudo cp s4vitar.jpg /usr/share/backgrounds/kali/login.svg 2>/dev/null
+sudo cp lightSurface.jpg /usr/share/backgrounds/kali/kali-maze-16x9.jpg 2>/dev/null
+sudo cp lightSurface.jpg /usr/share/backgrounds/kali/login.svg 2>/dev/null
 
 # Documents directory structure
 cd ~/Documents
