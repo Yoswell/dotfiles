@@ -5,7 +5,7 @@ configuration {
 * {
     font: "JetBrains Mono Bold 10";
 
-    nord0:     #050506;
+    nord0:     #090909;
     nord1:     #3b4252;
     nord2:     #434c5e;
     nord3:     #4c566a;
@@ -35,7 +35,7 @@ configuration {
 
 window {
     background-color:   @nord0;
-    border-color:       #151517;
+    border-color:       #000000;
 	border-radius:		0;
     width:      		550px;
 	height:     		208px;
