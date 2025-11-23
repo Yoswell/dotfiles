@@ -51,6 +51,8 @@ sudo apt install python3-impacket -y
 sudo apt install impacket-scripts -y
 sudo apt install ranger -y
 sudo apt install flatpak -y
+sudo apt install mono-devel -y
+sudo apt install wine wine64 -y
 
 # PowerShell
 sudo apt install powershell -y
