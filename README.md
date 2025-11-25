@@ -23,33 +23,29 @@
 - **System Configuration**: XFCE4 settings, power management, and keyboard shortcuts
 - **Wallpapers**: Curated collection of desktop wallpapers
 
-### 📁 Repository Structure
+### Repository Structure
 
 ```
 .
-├── bin/                     # Custom scripts and utilities
-│   └── config_cleanup.sh   # Script to clean up .config directory
-├── ctftools/               # CTF-related tools and scripts
-│   ├── chiselL             # Chisel (lightweight tunnel)
-│   ├── chiselW             # Chisel (Windows version)
-│   ├── phonemapExtract_wav.py  # Audio steganography tool
+├── bin/                          # Custom scripts and utilities
+│   └── config_cleanup.sh         # Script to clean up .config directory
+├── ctftools/                     # CTF-related tools and scripts
 │   └── ...
-├── wallpapers/             # Collection of desktop wallpapers
-├── .git/                   # Git version control
-├── kitty.conf              # Kitty terminal configuration
-├── microTheme.micro        # Micro editor theme
-├── rofiTheme.rasi          # Rofi launcher theme
-├── setup.sh                # Installation and setup script
-├── tools.sh                # Tool installation and configuration
-├── vscodeConfig.json       # VS Code settings
+├── wallpapers/                   # Collection of desktop wallpapers
+├── kitty.conf                    # Kitty terminal configuration
+├── microTheme.micro              # Micro editor theme
+├── rofiTheme.rasi                # Rofi launcher theme
+├── setup.sh                      # Installation and setup script
+├── tools.sh                      # Tool installation and configuration
+├── vscodeConfig.json             # VS Code settings
 ├── xfce4-keyboard-shortcuts.xml  # Custom keyboard shortcuts
-├── xfce4-power-manager.xml # Power management settings
-├── xfce4Settings.xml       # XFCE4 desktop settings
-├── xorg.conf               # X Server configuration
-└── zshrc                   # Zsh configuration file
+├── xfce4-power-manager.xml       # Power management settings
+├── xfce4Settings.xml             # Xfce4 desktop settings
+├── xorg.conf                     # X Server configuration
+└── zshrc                         # Zsh configuration file
 ```
 
-### 🛠️ Quick Start
+### Quick Start
 
 **Clone the repository**:
 ```bash
@@ -64,7 +60,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-### 📦 Included Tools
+### Included Tools
 
 - **Kitty**: Fast, feature-rich terminal emulator
 - **Micro**: Modern and intuitive terminal-based text editor
@@ -72,7 +68,7 @@ chmod +x setup.sh
 - **Chisel**: Fast TCP/UDP tunnel over HTTP
 - **Custom scripts**: Various utilities for system management and CTF challenges
 
-### 📦 Customization
+### Customization
 
 - Edit `zshrc` for shell customizations
 - Modify `kitty.conf` for terminal appearance
