@@ -147,6 +147,7 @@
       <property name="&lt;Primary&gt;&lt;Super&gt;6" type="string" value="move_window_workspace_6_key"/>
       <property name="&lt;Primary&gt;&lt;Super&gt;7" type="string" value="move_window_workspace_7_key"/>
       <property name="&lt;Primary&gt;&lt;Super&gt;8" type="string" value="move_window_workspace_8_key"/>
+      <property name="&lt;Alt&gt;Tab" type="string" value="switch_application_key"/>
     </property>
   </property>
   <property name="providers" type="array">
