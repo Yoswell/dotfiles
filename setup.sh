@@ -9,26 +9,26 @@ sudo snap remove autopsy
 # Configuration files
 cd ~
 mkdir -p tools && cd tools
-[ -d "config_files" ] && rm -rf config_files
-git clone https://gitlab.com/VIsh0k/config_files.git
+[ -d "dotfiles" ] && rm -rf dotfiles
+git clone https://gitlab.com/VIsh0k/dotfiles.git
 
 # Desktop/wallpapers directory
 cd ~/Desktop
 
 # Wallpaper configuration
 mkdir -p wallpapers && cd wallpapers
-cp ~/tools/config_files/wallpapers/* . 2>/dev/null
+cp ~/tools/dotfiles/wallpapers/* . 2>/dev/null
 
 # Login wallpaper configuration
-sudo cp lightSurface.jpg /usr/share/backgrounds/kali/kali-maze-16x9.jpg 2>/dev/null
-sudo cp lightSurface.jpg /usr/share/backgrounds/kali/login.svg 2>/dev/null
+sudo cp snow.png /usr/share/backgrounds/kali/kali-maze-16x9.jpg 2>/dev/null
+sudo cp snow.png /usr/share/backgrounds/kali/login.svg 2>/dev/null
 
 # Documents directory structure
 cd ~/Documents
 mkdir -p {htb_academy,htb_apps,htb_challenges,testing,cpts,ejpt,oscp}
 
 cd ~/
-cp -r tools/config_files/bin .
+cp -r tools/dotfiles/bin .
 
 # ZSH configuration
 cd ~
@@ -46,11 +46,11 @@ mv ~/powerlevel10k ~/.oh-my-zsh
 
 # Root user styling (zshrc and micro)
 sudo mkdir -p /root/.config/micro/colorschemes
-sudo cp ~/tools/config_files/zshrc /root/.zshrc
-sudo cp ~/tools/config_files/microTheme.micro /root/.config/micro/colorschemes/microTheme.micro
+sudo cp ~/tools/dotfiles/zshrc /root/.zshrc
+sudo cp ~/tools/dotfiles/microTheme.micro /root/.config/micro/colorschemes/microTheme.micro
 
 # Appearance configuration
-cd ~/tools/config_files
+cd ~/tools/dotfiles
 
 # Copy zshrc
 cp zshrc ~/.zshrc
@@ -91,7 +91,7 @@ cp xfce4-power-manager.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 cp xfce4Settings.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 # Tilix terminal profile
-# dconf load /com/gexperts/Tilix/ < ~/tools/config_files/tilixProfile.conf
+# dconf load /com/gexperts/Tilix/ < ~/tools/dotfiles/tilixProfile.conf
 
 # GTK configuration
 mkdir -p ~/.config/gtk-3.0
@@ -531,7 +531,7 @@ if ls JetBrainsMono*.zip 1> /dev/null 2>&1; then
     sudo mv fonts/ttf/* /usr/share/fonts/truetype/jetbrains-mono/ 2>/dev/null
 fi
 
-[ -d "jetbrains" ]] && rm -rf jetbrains
+[ -d "jetbrains" ] && rm -rf jetbrains
 
 # Set execution permissions
 # chmod +x ~/.config/bspwm/bspwmrc
