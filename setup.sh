@@ -10,7 +10,7 @@ sudo snap remove autopsy
 cd ~
 mkdir -p tools && cd tools
 [ -d "dotfiles" ] && rm -rf dotfiles
-git clone https://gitlab.com/VIsh0k/dotfiles.git
+git clone https://github.com/Yoswell/dotfiles.git
 
 # Desktop/wallpapers directory
 cd ~/Desktop
