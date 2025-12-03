@@ -41,8 +41,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 # Powerlevel10k theme
 cd ~/.oh-my-zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-mv ~/powerlevel10k ~/.oh-my-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git powerlevel10k
 
 # Root user styling (zshrc and micro)
 sudo mkdir -p /root/.config/micro/colorschemes
