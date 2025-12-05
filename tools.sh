@@ -53,19 +53,21 @@ sudo apt install ranger -y
 sudo apt install flatpak -y
 sudo apt install mono-devel -y
 sudo apt install wine wine64 -y
+sudo apt install feroxbuster
 
 # PowerShell
 sudo apt install powershell -y
 
 # Formatting utilities
-sudo apt install bat -y      # improved cat
-sudo apt install fd-find -y  # improved find
-sudo apt install fzf -y      # fuzzy search
-sudo apt install ripgrep -y  # improved grep
-sudo apt install jq -y       # process JSON
-sudo apt install yq -y       # process YAML
-sudo apt install hexyl -y    # hex viewer
-sudo apt install ncdu -y     # disk usage
+sudo apt install bat -y       # improved cat
+sudo apt install fd-find -y   # improved find
+sudo apt install fzf -y       # fuzzy search
+sudo apt install ripgrep -y   # improved grep
+sudo apt install jq -y        # process JSON
+sudo apt install yq -y        # process YAML
+sudo apt install hexyl -y     # hex viewer
+sudo apt install ncdu -y      # disk usage
+sudo apt install html2text -y # html viewer
 
 # More CTF tools
 sudo apt install binwalk -y
