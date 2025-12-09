@@ -111,6 +111,8 @@ pip install unicorn
 pip install keystone-engine
 pip install stegcracker
 pip install xortool
+pip3 install droopescan
+
 stegoveritas_install_deps
 
 # Exit virtual environment after pip installations

