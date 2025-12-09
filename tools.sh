@@ -25,7 +25,7 @@ error() {
 }
 
 section() {
-    echo -e "\n${CYAN}[ $1 ]${NC}"
+    echo -e "${CYAN}[ $1 ]${NC}"
 }
 
 # Create virtual environment

